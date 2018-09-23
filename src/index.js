@@ -31,9 +31,10 @@ module.exports = function check(str, bracketsConfig) {
       //если закрытая стек не пустой и |-такая и топ подходит
     } else if (type[curr] == "closed" && stack.length > 0 && top == form[curr]){
       stack.pop;
+      //если закрытая и не пустой стек и |-такая то добавляем в стек
+    }else if (type[curr] == "closed" && stack.length > 0 && curr == form[curr] ){
+      stack.push(curr);
     }
   }
   return (stack.length == 0) ? true : false;
 }
-
-//   assert.equal(check('555555757661133833448441111222233333444442266666', config6), false
